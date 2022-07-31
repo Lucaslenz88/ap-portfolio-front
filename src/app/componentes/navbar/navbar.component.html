@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Lucas Lenzetti</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light">
+          <i class="grey-text fab fa-facebook-square fa-2x"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light">
+          <i class="grey-text fab fa-instagram fa-2x"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light">
+          <i class="grey-text fab fa-twitter fa-2x"></i>
+        </a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logear()" *ngIf="!isLoggedIn">Login</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" *ngIf="isLoggedIn"
+              (click)="signOutEvent()">Logout</button>
+    </form>
+  </div>
+</nav>

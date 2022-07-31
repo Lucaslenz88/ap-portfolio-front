@@ -1,0 +1,51 @@
+<div class=" bg-dark text-center text-white" *ngIf="log">
+  <br>
+  <section class="" id="contacto">
+    <form *ngIf="!isLoggedIn"
+          name="form"
+          autocomplete="off"
+          (ngSubmit)="enviarForm(formularioTD)"
+          #formularioTD="ngForm"
+    >
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-5 col-12">
+          <div class="form-outline form-white mb-4">
+            <input #nombreControl="ngModel"
+                   type="text"
+                   class="form-control"
+                   name="username"
+                   [(ngModel)]="form.username"
+                   required
+            />
+            <label class="form-label" >Nombre de usuario</label>
+            <div *ngIf="nombreControl.invalid && nombreControl.dirty" class="alert alert-warning">
+              <p>Campo requerido</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <input #nombreControl2="ngModel"
+                   type="password"
+                   class="form-control"
+                   name="password"
+                   [(ngModel)]="form.password"
+                   required
+            />
+            <label class="form-label" >Contraseña</label>
+            <div *ngIf="nombreControl2.invalid && nombreControl2.dirty" class="alert alert-warning">
+              <p *ngIf="nombreControl2.errors['required']">Campo requerido</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-outline-light mb-4" id="myBtnLogin" [disabled]="formularioTD.invalid"
+                  (click)="sendMessage()">
+            Log in
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+      Logged in
+    </div>
+  </section>
+</div>
